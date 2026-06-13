@@ -1,0 +1,9 @@
+node_modules/
+.env
+data/*
+!data/.gitkeep
+.tmp-test-data/
+*.log
+.DS_Store
+docs/*
+docs

@@ -1,0 +1,20 @@
+name: myblog
+
+services:
+  myblog:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: ${PORT:-3000}
+      APP_BASE_URL: ${APP_BASE_URL:-http://localhost:3000}
+      SESSION_SECRET: ${SESSION_SECRET:-change-me-in-production}
+      DATA_DIR: ${DATA_DIR:-/app/data}
+      GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID:-}
+      GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET:-}
+      AI_API_KEY: ${AI_API_KEY:-}
+      AI_BASE_URL: ${AI_BASE_URL:-https://api.openai.com/v1}
+      AI_MODEL: ${AI_MODEL:-gpt-4o-mini}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
